@@ -1,6 +1,7 @@
 package Deal;
 
-public class Product {
+public abstract class Product {
+    public static final int DISCOUNT_PERCENT = 10;
     private String title;
     private double price;
     private int quantity;
@@ -29,7 +30,17 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public double getCost(){
-        return quantity*price;
+    public double getCost() {
+        if (calcDiscount() == 0){
+            return quantity * price;
+    }
+            return quantity*(100-((price* DISCOUNT_PERCENT)/100));
+
+}
+    protected int calcDiscount(){
+        if(quantity>=10){
+            return DISCOUNT_PERCENT;
+        }
+        return 0;
     }
 }

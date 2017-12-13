@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Program {
     static Scanner reader = new Scanner(System.in);
-    private static Deal[] deals = new Deal[3];
+    private static Deal[] deals = new Deal[1];
     static int  tail = 0;
     public static Deal inputDeal() {
 
@@ -31,10 +31,10 @@ public class Program {
     }
 
     public static Product[] inputProduct(){
-        Product[] products = new Product[3];
+        Product[] products = new PhotoProduct[1];
          Scanner reader = new Scanner(System.in);
         int count = 0;
-        for(int i = 0; i < 3; i++) {
+        for(int i = 0; i < products.length; i++) {
             System.out.println("-----------------");
             reader.nextLine();
             System.out.print("Введите название продукта №" + (count+1) + " ");
@@ -43,7 +43,7 @@ public class Program {
             Double price = reader.nextDouble();
             System.out.print("Введите кол-во продукта №" + (count+1) + " " );
             Integer quantity = reader.nextInt();
-            Product product = new Product();
+            Product product = new PhotoProduct();
             product.setTitle(title);
             product.setPrice(price);
             product.setQuantity(quantity);
@@ -66,6 +66,13 @@ public class Program {
         int count = 0;
         for(Deal d : deals) {
             for (Product p:d.getProducts()) {
+                if(p.calcDiscount()!=0){
+                    System.out.println(" --- У ВАС СКИДКА НА ЭТОТ ПРОДУКТ! ---");
+                    count++;
+                    System.out.println("   Название продукта № " + (count) + "  " + p.getTitle());
+                    System.out.println("   Цена продукта № " + (count) + "  " + p.getPrice());
+                    System.out.println("   Кол-во продукта № " + (count) + "  " + p.getQuantity());
+                }
                 count++;
                 System.out.println("   Название продукта № " + (count) + "  " + p.getTitle());
                 System.out.println("   Цена продукта № " + (count) + "  " + p.getPrice());
