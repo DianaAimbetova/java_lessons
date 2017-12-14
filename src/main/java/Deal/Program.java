@@ -159,7 +159,7 @@ public class Program {
                    // System.out.println("   Кол-во продукта № " + (count) + "  " + p.getQuantity());
 
                 //}else {
-                    System.out.println(" --- У ВАС СКИДКА НА ЭТОТ ПРОДУКТ :) ---");
+                    System.out.println(" --- ВАШИ ПРОДУКТЫ ---");
                     count++;
                     System.out.println("   Название продукта № " + (count) + "  " + p.getTitle());
                     System.out.println("   Цена продукта № " + (count) + "  " + p.getPrice());
