@@ -31,16 +31,17 @@ public abstract class Product {
     }
 
     public double getCost() {
-        if (calcDiscount() == 0){
-            return quantity * price;
-    }
-            return quantity*(100-((price* DISCOUNT_PERCENT)/100));
+        double realCost = quantity * price;
+        return realCost - realCost * calcDiscount() / 100;
 
 }
-    protected int calcDiscount(){
+    protected Integer calcDiscount(){
+
         if(quantity>=10){
             return DISCOUNT_PERCENT;
-        }
-        return 0;
+        }else{
+        return 0; }
+
     }
+
 }

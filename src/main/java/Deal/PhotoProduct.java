@@ -21,9 +21,9 @@ public class PhotoProduct extends Product {
     }
 
     @Override
-    protected int calcDiscount(){
+    protected Integer calcDiscount(){
         int def = super.calcDiscount();
-        if(!isDigital()){
+        if(isDigital()==false){
             def+=20;
         }
         return def;
