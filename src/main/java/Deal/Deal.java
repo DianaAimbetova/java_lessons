@@ -1,14 +1,15 @@
 package Deal;
 
-import java.util.Date;
+import java.util.*;
 
 public class Deal {
     private Date date;
     private Party buyer;
     private Party seller;
-    private Product[] products;
+    private Map<Product, Integer> products;
+   // private int quantity;
 
-    public Deal(Party seller, Party buyer, Product[] products){
+    public Deal(Party seller, Party buyer, Map<Product, Integer> products){
         this.seller = seller;
         this.buyer = buyer;
         this.products = products;
@@ -28,15 +29,24 @@ public class Deal {
         return seller;
     }
 
-    public Product[] getProducts() {
-        return products;
+    public Collection<Product> getProducts() {
+        Collection<Product> result = new ArrayList<Product>();
+        Set<Map.Entry<Product,Integer>> entries = products.entrySet();
+        for(Map.Entry<Product,Integer> entry: entries){
+            result.add(entry.getKey());
+        }
+        return result;
     }
 
     public double getSum(){
         double result = 0.0;
-        for(Product i : products){
-            result+=i.getCost();
+        Set<Map.Entry<Product,Integer>> entries = products.entrySet();
+        for(Map.Entry<Product,Integer> entry: entries){
+            result+=entry.getKey().getCost(entry.getValue());
         }
         return result;
     }
+
+
+
 }

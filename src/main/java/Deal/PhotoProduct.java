@@ -20,12 +20,12 @@ public class PhotoProduct extends Product {
         this.digital = digital;
     }
 
-    @Override
+    /*@Override
     protected Integer calcDiscount(){
         int def = super.calcDiscount();
         if(isDigital()==false){
             def+=20;
         }
         return def;
-    }
+    }*/
 }

@@ -4,7 +4,7 @@ public abstract class Product {
     public static final int DISCOUNT_PERCENT = 10;
     private String title;
     private double price;
-    private int quantity;
+   // private int quantity;
 
     public String getTitle() {
         return title;
@@ -14,9 +14,9 @@ public abstract class Product {
         return price;
     }
 
-    public int getQuantity() {
+   /** public int getQuantity() {
         return quantity;
-    }
+    }*/
 
     public void setTitle(String title) {
         this.title = title;
@@ -26,16 +26,16 @@ public abstract class Product {
         this.price = price;
     }
 
-    public void setQuantity(int quantity) {
+ /**   public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
+    }*/
 
-    public double getCost() {
+    public double getCost(int quantity) {
         double realCost = quantity * price;
-        return realCost - realCost * calcDiscount() / 100;
+        return realCost - realCost * calcDiscount(quantity) / 100;
 
 }
-    protected Integer calcDiscount(){
+    protected Integer calcDiscount(int quantity){
 
         if(quantity>=10){
             return DISCOUNT_PERCENT;
